@@ -1,0 +1,86 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+header a.navbar-brand {
+    font-size: 1.5rem;
+    color:#C8102E;
+}
+
+header nav a {
+    font-weight: 500;
+}
+
+section h1, section h2 {
+    color: #333;
+}
+
+.btn-success {
+    background-color: #C8102E;
+    border-color:#C8102E;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+}
+
+/* Category Cards */
+.card img {
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-title {
+    font-size: 1.25rem;
+    color:#C8102E;
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 15px;
+    }
+}
+/* Button Size Optimization */
+.btn-group button {
+    padding: 6px 12px;  /* Balanced padding */
+    font-size: 13px;    /* Moderate font size */
+    border-radius: 5px; /* Slightly rounded corners */
+    width: auto;        /* Auto width to fit the text */
+    margin: 5px;        /* Add margin for spacing */
+}
+
+/* Aligning button group inside the card */
+.card-body {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.btn-group {
+    display: flex;
+    justify-content: center; /* Center the buttons */
+    gap: 5px; /* Add spacing between buttons */
+}
+
+@media (max-width: 768px) {
+    .btn-group button {
+        font-size: 12px; /* Slightly smaller font size for smaller screens */
+    }
+}
+
+@media (max-width: 576px) {
+    .btn-group {
+        flex-direction: column; /* Stack buttons vertically on mobile */
+    }
+    .btn-group button {
+        width: 100%;   /* Full-width buttons on mobile */
+    }
+}
+
+
+a 
+{
+   text-decoration: none;
+}
+

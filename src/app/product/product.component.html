@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecomart | E-commerce</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+
+    <style>
+        .col-seven {
+            width: calc(100% / 7); /* 7 items per row */
+        }
+
+        @media (max-width: 1200px) {
+            .col-seven {
+                width: calc(100% / 4); /* 4 items per row */
+            }
+        }
+
+        @media (max-width: 768px) {
+            .col-seven {
+                width: calc(100% / 2); /* 2 items per row */
+            }
+        }
+
+        @media (max-width: 576px) {
+            .col-seven {
+                width: 100%; /* Full width on mobile */
+            }
+        }
+
+        /* Floating action button styling */
+        .fab-create {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #C8102E; /* Red for create */
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000; /* Ensure it stays above other elements */
+        }
+
+        .fab-create:hover {
+            background-color: #A80F2C; /* Darker red on hover */
+        }
+        .product-image
+        {
+            width: 130px;
+            height :100px;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header Section -->
+    <header class="bg-light py-3">
+        <div class="container d-flex justify-content-between align-items-center">
+            <a href="#" class="navbar-brand fw-bold">Ecomart</a>
+            <nav>
+                <ul class="list-unstyled d-flex mb-0">
+                    <li><a href="#" class="text-dark mx-3">Categories</a></li>
+                    <li><a href="#" class="text-dark mx-3">New Arrivals</a></li>
+                    <li><a href="#" class="text-dark mx-3">Login</a></li>
+                </ul>
+            </nav>
+            <div>
+                <a href="#" class="text-dark mx-3">Cart</a>
+                <a href="#" class="btn btn-success">Sign Up</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="bg-light py-5">
+        <div class="container text-center">
+            <h1 class="fw-bold">Shop your favorite products from one place</h1>
+            <p class="lead">Amazing deals and discounts for a limited time only.</p>
+            <a href="#" class="btn btn-success">Shop Now</a>
+        </div>
+    </section>
+
+    <!-- Category Section -->
+    <section class="py-5">
+        <div class="container">
+            <h2 class="text-center mb-5">Browse our top category products</h2>
+            <div class="row row-cols-1 row-cols-md-3 g-4">
+                @for (item of products; track $index) {
+                    <div class="col-seven">
+                            <div class="card h-100 text-center">
+
+                                <!-- <img src="" class="card-img-top" alt="{{item.title}}"> -->
+                                <div class="card-body">
+                                  <!-- <a [routerLink]="['/productdetails', item.id]"> -->
+
+                                    <img src="{{item.images}}" alt="Product Image" class="product-image">
+
+                                    <!-- <h5 class="card-title">{{item.title}}</h5> -->
+                                    <p class="card-text ">{{item.title}} </p>
+                                    <!-- <p class="card-text">{{item.category.name}}</p> -->
+
+                                    <p class="card-text">${{item.price}} </p>
+
+                                    <!-- </a> -->
+
+                                    <!-- CRUD Buttons -->
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-warning" [routerLink]="['/productupdate',item._id]">Update</button>
+                                        <!-- <button type="button" class="btn btn-warning">Update</button> -->
+
+                                        <button type="button" class="btn btn-danger" (click)="deleteItem(item._id)">Delete</button>
+                                        <!-- <button type="button" class="btn btn-danger">Delete</button> -->
+
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+
+                }
+            </div>
+        </div>
+
+    </section>
+    <a [routerLink]="['/productcreate']" class="fab-create">
+        <span>+</span>
+    </a>
+
+
+
+    <!-- Floating Create Button -->
+    <!-- Button trigger modal -->
+      <!-- Button trigger modal -->
+    
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+      
+    
+      
+
+    <!-- Footer -->
+    <footer class="bg-dark text-light py-4">
+        <div class="container text-center">
+            <p>&copy; 2024 Ecomart. All Rights Reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
